@@ -44,7 +44,7 @@ const GALLERIES = {
     images: ["views-01.jpg"],
   },
   digital: {
-    title: "Street",
+    title: "Street Photography",
     subtitle: "Shooting on a FUJIFILM X100VI",
     images: [
       "digital-street-01.jpg",
