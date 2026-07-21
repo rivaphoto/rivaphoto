@@ -44,69 +44,21 @@
   }
   nav .links{
     display:flex;
-    gap:28px;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:12px 22px;
     list-style:none;
   }
-  nav .links a, nav .links > li > span{
+  nav .links a{
     font-size:12px;
     letter-spacing:1.5px;
     text-transform:uppercase;
     color:var(--ink);
     text-decoration:none;
     font-weight:400;
-  }
-  nav .links a:hover, nav .links > li > span.dropdown-trigger:hover{ color:var(--muted); }
-
-  nav .links li{
-    position:relative;
-  }
-  .dropdown-trigger{
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:4px;
-  }
-  .dropdown-trigger::after{
-    content:'';
-    width:5px;
-    height:5px;
-    border-right:1px solid var(--ink);
-    border-bottom:1px solid var(--ink);
-    transform:rotate(45deg);
-    margin-top:-3px;
-    transition:transform 0.15s ease;
-  }
-  li.open .dropdown-trigger::after{
-    transform:rotate(225deg);
-    margin-top:3px;
-  }
-  .dropdown-menu{
-    position:absolute;
-    top:100%;
-    left:50%;
-    transform:translateX(-50%);
-    margin-top:14px;
-    background:#fff;
-    border:1px solid #eeece6;
-    padding:10px 0;
-    min-width:180px;
-    opacity:0;
-    visibility:hidden;
-    transition:opacity 0.15s ease;
-    z-index:20;
-  }
-  li.open .dropdown-menu{
-    opacity:1;
-    visibility:visible;
-  }
-  .dropdown-menu a{
-    display:block;
-    padding:9px 20px;
     white-space:nowrap;
   }
-  .dropdown-menu a:hover{
-    background:var(--surface);
-  }
+  nav .links a:hover{ color:var(--muted); }
 
   .intro{
     max-width:640px;
@@ -251,7 +203,8 @@
   }
 
   @media (max-width:640px){
-    nav .links{ gap:16px; }
+    nav{ flex-wrap:wrap; gap:12px 0; }
+    nav .links{ gap:10px 14px; justify-content:flex-start; }
     nav .links a{ font-size:10px; letter-spacing:1px; }
     .grid{ grid-template-columns:repeat(2, 1fr); gap:14px; }
   }
@@ -262,15 +215,10 @@
 <nav>
   <a class="logo" href="index.html">Alexa Rivadeneira</a>
   <ul class="links">
-    <li id="film-nav-item">
-      <span class="dropdown-trigger" onclick="toggleDropdown(event)">Film</span>
-      <div class="dropdown-menu">
-        <a href="index.html#portraits">Portraits</a>
-        <a href="index.html#travel">Travel</a>
-        <a href="index.html#street">Street Photography</a>
-        <a href="index.html#views">Views</a>
-      </div>
-    </li>
+    <li><a href="index.html#portraits">Portraits</a></li>
+    <li><a href="index.html#travel">Travel</a></li>
+    <li><a href="index.html#street">Street Photography</a></li>
+    <li><a href="index.html#views">Views</a></li>
     <li><a href="digital.html">Digital</a></li>
   </ul>
 </nav>
@@ -330,19 +278,8 @@
   document.getElementById('lightbox').addEventListener('click', function(e){
     if(e.target === this) closeLB();
   });
-
-  function toggleDropdown(e){
-    e.stopPropagation();
-    document.getElementById('film-nav-item').classList.toggle('open');
-  }
-  document.addEventListener('click', function(){
-    document.getElementById('film-nav-item').classList.remove('open');
-  });
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape'){
-      closeLB();
-      document.getElementById('film-nav-item').classList.remove('open');
-    }
+    if(e.key === 'Escape') closeLB();
   });
 
   renderGalleries();
