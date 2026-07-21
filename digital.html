@@ -76,7 +76,7 @@
     margin-top:-3px;
     transition:transform 0.15s ease;
   }
-  li:hover .dropdown-trigger::after{
+  li.open .dropdown-trigger::after{
     transform:rotate(225deg);
     margin-top:3px;
   }
@@ -95,7 +95,7 @@
     transition:opacity 0.15s ease;
     z-index:20;
   }
-  li:hover .dropdown-menu{
+  li.open .dropdown-menu{
     opacity:1;
     visibility:visible;
   }
@@ -262,8 +262,8 @@
 <nav>
   <a class="logo" href="index.html">Alexa Rivadeneira</a>
   <ul class="links">
-    <li>
-      <span class="dropdown-trigger">Film</span>
+    <li id="film-nav-item">
+      <span class="dropdown-trigger" onclick="toggleDropdown(event)">Film</span>
       <div class="dropdown-menu">
         <a href="index.html#portraits">Portraits</a>
         <a href="index.html#travel">Travel</a>
@@ -330,8 +330,19 @@
   document.getElementById('lightbox').addEventListener('click', function(e){
     if(e.target === this) closeLB();
   });
+
+  function toggleDropdown(e){
+    e.stopPropagation();
+    document.getElementById('film-nav-item').classList.toggle('open');
+  }
+  document.addEventListener('click', function(){
+    document.getElementById('film-nav-item').classList.remove('open');
+  });
   document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeLB();
+    if(e.key === 'Escape'){
+      closeLB();
+      document.getElementById('film-nav-item').classList.remove('open');
+    }
   });
 
   renderGalleries();
