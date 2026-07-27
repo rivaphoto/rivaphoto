@@ -54,6 +54,13 @@ const GALLERIES = {
       "digital-street-05.jpg",
       "digital-street-06.jpg",
       "digital-street-07.jpg",
+      "digital-street-08.jpg",
+      "digital-street-09.jpg",
+      "digital-street-10.jpg",
+      "digital-street-11.jpg",
+      "digital-street-12.jpg",
+      "digital-street-13.jpg",
+      "digital-street-14.jpg",
     ],
   },
 };
