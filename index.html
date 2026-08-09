@@ -45,7 +45,7 @@
     gap:28px;
     list-style:none;
   }
-  nav .links a, nav .links > li > span{
+  nav .links a{
     font-size:12px;
     letter-spacing:1.5px;
     text-transform:uppercase;
@@ -53,58 +53,7 @@
     text-decoration:none;
     font-weight:400;
   }
-  nav .links a:hover, nav .links > li > span.dropdown-trigger:hover{ color:var(--muted); }
-
-  nav .links li{
-    position:relative;
-  }
-  .dropdown-trigger{
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:4px;
-  }
-  .dropdown-trigger::after{
-    content:'';
-    width:5px;
-    height:5px;
-    border-right:1px solid var(--ink);
-    border-bottom:1px solid var(--ink);
-    transform:rotate(45deg);
-    margin-top:-3px;
-    transition:transform 0.15s ease;
-  }
-  li:hover .dropdown-trigger::after{
-    transform:rotate(225deg);
-    margin-top:3px;
-  }
-  .dropdown-menu{
-    position:absolute;
-    top:100%;
-    left:50%;
-    transform:translateX(-50%);
-    margin-top:14px;
-    background:#fff;
-    border:1px solid #eeece6;
-    padding:10px 0;
-    min-width:180px;
-    opacity:0;
-    visibility:hidden;
-    transition:opacity 0.15s ease;
-    z-index:20;
-  }
-  li:hover .dropdown-menu{
-    opacity:1;
-    visibility:visible;
-  }
-  .dropdown-menu a{
-    display:block;
-    padding:9px 20px;
-    white-space:nowrap;
-  }
-  .dropdown-menu a:hover{
-    background:var(--surface);
-  }
+  nav .links a:hover{ color:var(--muted); }
 
   .intro{
     max-width:640px;
@@ -260,27 +209,15 @@
 <nav>
   <span class="logo">Alexa Rivadeneira</span>
   <ul class="links">
-    <li>
-      <span class="dropdown-trigger">Film</span>
-      <div class="dropdown-menu">
-        <a href="#portraits">Portraits</a>
-        <a href="#travel">Travel</a>
-        <a href="#street">Street Photography</a>
-        <a href="#views">Views</a>
-      </div>
-    </li>
-    <li>
-      <span class="dropdown-trigger">Digital</span>
-      <div class="dropdown-menu">
-        <a href="#digital">Street</a>
-        <a href="#digital-portraits">Portraits</a>
-      </div>
-    </li>
+    <li><a href="#portraits">Portraits</a></li>
+    <li><a href="#travel">Travel</a></li>
+    <li><a href="#street">Street Photography</a></li>
+    <li><a href="#views">Views</a></li>
   </ul>
 </nav>
 
 <div class="intro">
-  <p>Shooting on a Canon AE-1 Program, 35mm.</p>
+  <p>Shooting digital on a FUJIFILM X100VI and film on a Canon AE-1 Program, 35mm.</p>
 </div>
 
 <main>
@@ -288,6 +225,21 @@
   <section class="book" id="portraits">
     <p class="book-title">Portraits</p>
     <div class="grid">
+      <figure>
+        <div class="plate" onclick="openLB('', 'images/digital-portraits-01.jpg')"><img src="images/digital-portraits-01.jpg" alt="Portrait"></div>
+      </figure>
+      <figure>
+        <div class="plate" onclick="openLB('', 'images/digital-portraits-02.jpg')"><img src="images/digital-portraits-02.jpg" alt="Portrait"></div>
+      </figure>
+      <figure>
+        <div class="plate" onclick="openLB('', 'images/digital-portraits-03.jpg')"><img src="images/digital-portraits-03.jpg" alt="Portrait"></div>
+      </figure>
+      <figure>
+        <div class="plate" onclick="openLB('', 'images/digital-portraits-04.jpg')"><img src="images/digital-portraits-04.jpg" alt="Portrait"></div>
+      </figure>
+      <figure>
+        <div class="plate" onclick="openLB('', 'images/digital-portraits-05.jpg')"><img src="images/digital-portraits-05.jpg" alt="Portrait"></div>
+      </figure>
       <figure>
         <div class="plate" onclick="openLB('', 'images/portraits-01.jpg')"><img src="images/portraits-01.jpg" alt="Portrait"></div>
       </figure>
@@ -370,29 +322,6 @@
     <p class="book-title">Street Photography</p>
     <div class="grid">
       <figure>
-        <div class="plate" onclick="openLB('', 'images/street-01.jpg')"><img src="images/street-01.jpg" alt="Street"></div>
-      </figure>
-      <figure>
-        <div class="plate" onclick="openLB('', 'images/street-02.jpg')"><img src="images/street-02.jpg" alt="Street"></div>
-      </figure>
-    </div>
-  </section>
-
-
-  <section class="book" id="views">
-    <p class="book-title">Views</p>
-    <div class="grid">
-      <figure>
-        <div class="plate" onclick="openLB('', 'images/views-01.jpg')"><img src="images/views-01.jpg" alt="Views"></div>
-      </figure>
-    </div>
-  </section>
-
-  <section class="book" id="digital">
-    <p class="book-title">Street</p>
-    <p class="book-subtitle">Shooting on a FUJIFILM X100VI</p>
-    <div class="grid">
-      <figure>
         <div class="plate" onclick="openLB('', 'images/digital-street-01.jpg')"><img src="images/digital-street-01.jpg" alt="Street"></div>
       </figure>
       <figure>
@@ -413,27 +342,20 @@
       <figure>
         <div class="plate" onclick="openLB('', 'images/digital-street-07.jpg')"><img src="images/digital-street-07.jpg" alt="Street"></div>
       </figure>
+      <figure>
+        <div class="plate" onclick="openLB('', 'images/street-01.jpg')"><img src="images/street-01.jpg" alt="Street"></div>
+      </figure>
+      <figure>
+        <div class="plate" onclick="openLB('', 'images/street-02.jpg')"><img src="images/street-02.jpg" alt="Street"></div>
+      </figure>
     </div>
   </section>
 
-  <section class="book" id="digital-portraits">
-    <p class="book-title">Portraits</p>
-    <p class="book-subtitle">Shooting on a FUJIFILM X100VI</p>
+  <section class="book" id="views">
+    <p class="book-title">Views</p>
     <div class="grid">
       <figure>
-        <div class="plate" onclick="openLB('', 'images/digital-portraits-01.jpg')"><img src="images/digital-portraits-01.jpg" alt="Portrait"></div>
-      </figure>
-      <figure>
-        <div class="plate" onclick="openLB('', 'images/digital-portraits-02.jpg')"><img src="images/digital-portraits-02.jpg" alt="Portrait"></div>
-      </figure>
-      <figure>
-        <div class="plate" onclick="openLB('', 'images/digital-portraits-03.jpg')"><img src="images/digital-portraits-03.jpg" alt="Portrait"></div>
-      </figure>
-      <figure>
-        <div class="plate" onclick="openLB('', 'images/digital-portraits-04.jpg')"><img src="images/digital-portraits-04.jpg" alt="Portrait"></div>
-      </figure>
-      <figure>
-        <div class="plate" onclick="openLB('', 'images/digital-portraits-05.jpg')"><img src="images/digital-portraits-05.jpg" alt="Portrait"></div>
+        <div class="plate" onclick="openLB('', 'images/views-01.jpg')"><img src="images/views-01.jpg" alt="Views"></div>
       </figure>
     </div>
   </section>
